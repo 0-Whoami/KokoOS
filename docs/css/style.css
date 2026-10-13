@@ -1,0 +1,116 @@
+:root {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 4rem;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 99;
+    will-change: transform;
+}
+
+header.hidden {
+    transform: translateY(-100%);
+}
+
+header>* {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    padding: 0.5em;
+    flex-shrink: 0;
+}
+
+
+#c_title {
+    height: 55% !important;
+    flex: 1;
+    padding: 0;
+}
+
+
+
+header icon-button {
+    cursor: pointer;
+    transition: aspect-ratio 250ms ease 1s, border 250ms ease 550ms, color 250ms ease, background-color 250ms ease;
+}
+
+header icon-button span {
+    opacity: 0;
+    transition: opacity 150ms ease 1s;
+    margin: 0 auto;
+}
+
+header icon-button:active {
+    background-color: white;
+    color: black;
+    opacity: 0.8;
+}
+
+@media screen and (min-width: 800px) {
+    header icon-button:hover {
+        border: 1px solid white;
+        background-color: white;
+        color: black;
+        aspect-ratio: 3 / 1;
+        transition-delay: 100ms;
+
+    }
+
+    header icon-button:hover span {
+        opacity: 1;
+        transition-delay: 100ms;
+    }
+}
+
+
+main section {
+    width: 100%;
+    height: 100vh;
+}
+
+@keyframes opac {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes bob {
+
+    50% {
+        transform: translateY(0.5em);
+    }
+}
+
+.opening #scrl_ind {
+    height: 3rem;
+    gap: 1em;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: opac 2s ease-in-out infinite;
+}
+
+.opening #scrl_ind vec-icon {
+    animation: bob 2s ease-in-out infinite;
+}
